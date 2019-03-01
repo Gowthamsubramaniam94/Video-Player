@@ -152,9 +152,13 @@ public class VideoPlayerActivity extends AppCompatActivity implements Player.Eve
         LinearLayoutManager aLinearLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRelatedList.setLayoutManager(aLinearLayoutManager);
         mRelatedList.setHasFixedSize(true);
+
         //remove current position
         mRemovedVideoArrayList.addAll(mVideoArrayList);
-        mRemovedVideoArrayList.remove(mPosition);
+        for (ReturnValues.VideoDetails aVideoDetails : mVideoArrayList) {
+            if (aVideoDetails.id.equals(mVideoID))
+                mRemovedVideoArrayList.remove(aVideoDetails);
+        }
 
         mAdapter = new RelatedVideoListAdapter(this, mVideoArrayList, mRemovedVideoArrayList);
         mRelatedList.setAdapter(mAdapter);
