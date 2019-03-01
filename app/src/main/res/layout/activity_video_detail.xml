@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/activity_video_detail_video_LAY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/videoFullScreenPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#A6000000"
+            app:controller_layout_id="@layout/exo_playback_control_view"
+            app:fastforward_increment="10"
+            app:hide_on_touch="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:player_layout_id="@layout/exo_simple_player_view"
+            app:repeat_toggle_modes="none"
+            app:show_timeout="45000"
+            app:surface_type="texture_view" />
+
+        <ProgressBar
+            android:id="@+id/spinnerVideoDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/activity_video_detail_play_BTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/play_btn"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/activity_video_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_video_detail_video_LAY"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/activity_video_detail_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_video_detail_title"
+        android:maxLines="3"
+        android:padding="10dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/activity_video_detail_related_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_video_detail_description"
+        android:padding="10dp"
+        android:text="@string/related_title"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_video_detail_related_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_video_detail_related_title"
+        android:padding="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>
